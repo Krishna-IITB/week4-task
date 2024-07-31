@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tweeting Website</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content" placeholder="What's happening?"></textarea>
+        <button type="submit">Tweet</button>
+    </form>
+    <ul>
+        {% for tweet in tweets %}
+            <li><strong>{{ tweet.user.username }}</strong>: {{ tweet.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
